@@ -25,7 +25,7 @@ SECRET_KEY = 'uvrrwf7oropvda5sq#n)7b0=+ml5tklmpx9rn#^!8*d_^nvf&)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['93.188.162.22', 'lowcosts.online', 'www.lowcosts.online']
+ALLOWED_HOSTS = ['93.188.162.22', 'lowcosts.online', 'www.lowcosts.online', '127.0.0.1']
 
 
 # Application definition
@@ -120,4 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "/")
+STATIC_ROOT = os.path.join(BASE_DIR, "/lowcosts-new/static/")
