@@ -1,0 +1,297 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static "/img/apple-icon.png" %}">
+	<link rel="icon" type="image/png" href="{% static "/img/favicon.png" %}">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Landing Page - Material Kit by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="{% static "/css/bootstrap.min.css" %}" rel="stylesheet" />
+    <link href="{% static "/css/material-kit.css" %}" rel="stylesheet"/>
+
+</head>
+
+<body class="landing-page">
+    <nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="#">Lowcosts.Online</a>
+        	</div>
+
+        	<div class="collapse navbar-collapse" id="navigation-example">
+        		<ul class="nav navbar-nav navbar-right">
+    				<li>
+    					<a href="#" target="_blank">
+    						Search
+    					</a>
+    				</li>
+    				<li>
+						<a href="#" target="_blank">
+							<i class="material-icons">unarchive</i> Search history
+						</a>
+    				</li>
+		            <li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-twitter"></i>
+						</a>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-facebook-square"></i>
+						</a>
+		            </li>
+					<li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-instagram"></i>
+						</a>
+		            </li>
+        		</ul>
+        	</div>
+    	</div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('{% static "/img/bg_index.jpg" %}');">
+            <div class="container">
+                <div class="row">
+					<div class="col-md-6">
+						<h1 class="title">Find best prices!</h1>
+	                    <h4></h4>
+	                    <br />
+	                    <a href="https://www.youtube.com/watch?v=069y1MpOkQY" class="btn btn-danger btn-raised btn-lg">
+							<i class="fa fa-play"></i> Watch video
+						</a>
+					</div>
+                </div>
+            </div>
+        </div>
+
+		<div class="main main-raised">
+			<div class="container">
+		    	<!-- <div class="section text-center section-landing"> -->
+	                <!-- <div class="row"> -->
+	                    <!-- <div class="col-md-8 col-md-offset-2"> -->
+	                        <!-- <h2 class="title">Let's talk product</h2> -->
+	                        <!-- <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5> -->
+	                    <!-- </div> -->
+	                <!-- </div> -->
+
+					<!-- <div class="features"> -->
+						<!-- <div class="row"> -->
+		                    <!-- <div class="col-md-4"> -->
+								<!-- <div class="info"> -->
+									<!-- <div class="icon icon-primary"> -->
+										<!-- <i class="material-icons">chat</i> -->
+									<!-- </div> -->
+									<!-- <h4 class="info-title">First Feature</h4> -->
+									<!-- <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p> -->
+								<!-- </div> -->
+		                    <!-- </div> -->
+		                    <!-- <div class="col-md-4"> -->
+								<!-- <div class="info"> -->
+									<!-- <div class="icon icon-success"> -->
+										<!-- <i class="material-icons">verified_user</i> -->
+									<!-- </div> -->
+									<!-- <h4 class="info-title">Second Feature</h4> -->
+									<!-- <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p> -->
+								<!-- </div> -->
+		                    <!-- </div> -->
+		                    <!-- <div class="col-md-4"> -->
+								<!-- <div class="info"> -->
+									<!-- <div class="icon icon-danger"> -->
+										<!-- <i class="material-icons">fingerprint</i> -->
+									<!-- </div> -->
+									<!-- <h4 class="info-title">Third Feature</h4> -->
+									<!-- <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p> -->
+								<!-- </div> -->
+		                    <!-- </div> -->
+		                <!-- </div> -->
+					<!-- </div> -->
+	            <!-- </div> -->
+
+	        	<div class="section text-center">
+	                <h2 class="title">Lowcost airlines</h2>
+
+					<div class="team">
+						<div class="row">
+							<div class="col-md-4">
+			                    <div class="team-player">
+			                        <img src="{% static "/img/wizzair.jpg" %}" alt="" class="img-raised img-circle">
+			                        <h4 class="title">Wizzair<br />
+										<small class="text-muted">Hungary</small><br>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" disabled>
+                                                Routes
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" disabled>
+                                                Prices
+                                            </label>
+                                        </div>
+									</h4>
+			                        <p class="description"> <a href="#">Site</a></p>
+									<a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-instagram"></i></a>
+									<a href="#" class="btn btn-simple btn-just-icon btn-default"><i class="fa fa-facebook-square"></i></a>
+			                    </div>
+			                </div>
+			                <div class="col-md-4">
+			                    <div class="team-player">
+			                        <img src="{% static "/img/Ryanair.jpg" %}" alt="Thumbnail Image" class="img-raised img-circle">
+			                        <h4 class="title">Ryanair<br />
+										<small class="text-muted">United Kingdom</small><br>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" disabled>
+                                                Routes
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" disabled>
+                                                Prices
+                                            </label>
+                                        </div>
+									</h4>
+			                        <p class="description"><a href="#">Site</a></p>
+									<a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin"></i></a>
+			                    </div>
+			                </div>
+			                <div class="col-md-4">
+			                    <div class="team-player">
+			                        <img src="{% static "/img/ernest.jpg" %}" alt="Thumbnail Image" class="img-raised img-circle">
+			                        <h4 class="title">Ernest<br />
+										<small class="text-muted">Italy</small><br>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" disabled>
+                                                Routes
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" disabled>
+                                                Prices
+                                            </label>
+                                        </div>
+									</h4>
+			                        <p><a href="#">Site</a></p>
+									<a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus"></i></a>
+									<a href="#" class="btn btn-simple btn-just-icon"><i class="fa fa-youtube-play"></i></a>
+									<a href="#" class="btn btn-simple btn-just-icon btn-default"><i class="fa fa-twitter"></i></a>
+			                    </div>
+			                </div>
+						</div>
+					</div>
+
+	            </div>
+
+
+	        	<div class="section landing-section">
+	                <div class="row">
+	                    <div class="col-md-8 col-md-offset-2">
+	                        <h2 class="text-center title">Send message</h2>
+							<h4 class="text-center description"></h4>
+	                        <form class="contact-form">
+	                            <div class="row">
+	                                <div class="col-md-6">
+										<div class="form-group label-floating">
+											<label class="control-label">Your Name</label>
+											<input type="email" class="form-control">
+										</div>
+	                                </div>
+	                                <div class="col-md-6">
+										<div class="form-group label-floating">
+											<label class="control-label">Your Email</label>
+											<input type="email" class="form-control">
+										</div>
+	                                </div>
+	                            </div>
+
+								<div class="form-group label-floating">
+									<label class="control-label">Your Messge</label>
+									<textarea class="form-control" rows="4"></textarea>
+								</div>
+
+	                            <div class="row">
+	                                <div class="col-md-4 col-md-offset-4 text-center">
+	                                    <button class="btn btn-primary btn-raised">
+											Send Message
+										</button>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+
+	            </div>
+	        </div>
+
+		</div>
+
+	    <footer class="footer">
+	        <div class="container">
+	            <!-- <nav class="pull-left"> -->
+	                <!-- <ul> -->
+	                    <!-- <li> -->
+	                        <!-- <a href="#"> -->
+	                            <!-- Creative Tim -->
+	                        <!-- </a> -->
+	                    <!-- </li> -->
+						<!-- <li> -->
+	                        <!-- <a href="#"> -->
+	                           <!-- About Us -->
+	                        <!-- </a> -->
+	                    <!-- </li> -->
+	                    <!-- <li> -->
+	                        <!-- <a href="#"> -->
+	                           <!-- Blog -->
+	                        <!-- </a> -->
+	                    <!-- </li> -->
+	                    <!-- <li> -->
+	                        <!-- <a href="#"> -->
+	                            <!-- Licenses -->
+	                        <!-- </a> -->
+	                    <!-- </li> -->
+	                <!-- </ul> -->
+	            <!-- </nav> -->
+	            <div class="copyright text-center">
+	                &copy; 2018
+	            </div>
+	        </div>
+	    </footer>
+
+	</div>
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="{% static "/js/jquery.min.js" %}" type="text/javascript"></script>
+	<script src="{% static "/js/bootstrap.min.js" %}" type="text/javascript"></script>
+	<script src="{% static "/js/material.min.js" %}"></script>
+
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="{% static "/js/nouislider.min.js" %}" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="{% static "/js/bootstrap-datepicker.js" %}" type="text/javascript"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="{% static "/js/material-kit.js" %}" type="text/javascript"></script>
+
+</html>
