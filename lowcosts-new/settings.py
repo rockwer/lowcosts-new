@@ -25,7 +25,7 @@ SECRET_KEY = 'uvrrwf7oropvda5sq#n)7b0=+ml5tklmpx9rn#^!8*d_^nvf&)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['93.188.162.22', 'lowcosts.online', 'www.lowcosts.online']
 
 
 # Application definition
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'new_lowcosts.urls'
+ROOT_URLCONF = 'lowcosts-new.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'new_lowcosts.wsgi.application'
+WSGI_APPLICATION = 'lowcosts-new.wsgi.application'
 
 
 # Database
