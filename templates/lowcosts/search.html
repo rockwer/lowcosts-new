@@ -1,0 +1,134 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block search %}
+<div class="landing-page">
+
+<div class="wrapper">
+<div class="header header-filter" style="background-image: url('{% static "/img/bg_index.jpg" %}');">
+            <!-- <div class="container"> -->
+                <!-- <div class="row"> -->
+					<!-- <div class="col-md-6"> -->
+						<!-- <h1 class="title">Find best prices!</h1> -->
+	                    <!-- <h4></h4> -->
+	                    <!-- <br /> -->
+	                    <!-- <a href="https://www.youtube.com/watch?v=069y1MpOkQY" class="btn btn-danger btn-raised btn-lg"> -->
+							<!-- <i class="fa fa-play"></i> Watch video -->
+						<!-- </a> -->
+					<!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+<div class="main main-raised">
+<div class="container">
+                            <form class="contact-form" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+	                                <div class="col-md-6">
+										<div class="form-group label-floating">        
+                            Вылет из:
+                            {{ form.departureStation }}
+                            </div>
+                            </div>
+                             <div class="col-md-6">
+										<div class="form-group label-floating">
+                            Прилет в:
+                            {{ form.arrivalStation }}
+                            </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6">
+										<div class="form-group label-floating">
+                            Дата вылета:
+                            {{ form.date_from }}
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+										<div class="form-group label-floating">
+                            Дата прилета:
+                            {{ form.date_to }}
+                            </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6">
+										<div class="form-group label-floating">
+                            WizzAir Discont Club:
+                            {{ form.priceType }}
+                            </div>
+                            </div>
+                            </div>
+                            <button type="submit" class="btn btn-info float-right">Искать</button>
+                            
+                            </form>
+                </div>
+                {% if request_res.outboundFlights %}
+                <div class="row">
+                    <table class="table table-striped">
+                        <h3>Туда:</h3>
+                        <thead>
+                        <tr>
+                            <th>А/П Вылета</th>
+                            <th>А/П Прилета</th>
+                            <th>Дата вылета</th>
+                            <th>Цена</th>
+                        </tr>
+                        </thead>
+                        {% for obj in request_res.outboundFlights %}
+                        <tr>
+                            <td>
+                                {{obj.departureStation}}
+                            </td>
+                            <td>
+                                {{obj.arrivalStation}}
+                            </td>
+                            <td>
+                                {{ obj.departureDate }}
+                            </td>
+                            <td>
+                                {{ obj.price.amount }}
+                            </td>
+                            </td>
+                        </tr>
+                        {% endfor%}
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                        <h3>Обратно:</h3>
+                        <tr>
+                            <th>А/П Вылета</th>
+                            <th>А/П Прилета</th>
+                            <th>Дата вылета</th>
+                            <th>Цена</th>
+                        </tr>
+                        </thead>
+                        {% for obj in request_res.returnFlights %}
+                        <tr>
+                            <td>
+                                {{obj.departureStation}}
+                            </td>
+                            <td>
+                                {{obj.arrivalStation}}
+                            </td>
+                            <td>
+                                {{ obj.departureDate }}
+                            </td>
+                            <td>
+                                {{ obj.price.amount }}
+                            </td>
+                            </td>
+                        </tr>
+                        {% endfor%}
+                    </table>
+                </div>
+                {% elif request_res.validationCodes %}
+                    <div class="row">
+                        {{ request_res.validationCodes }}
+                    </div>
+                {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

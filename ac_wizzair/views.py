@@ -3,9 +3,9 @@ from .forms import FlightSearchForm
 from .wizz_request import request_data
 from general.new_request_number import new_request_number
 from general.models import Airport, priceType, priceTemplate, Price
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
-from .dates_from_range import get_dates_range
+from ac_wizzair.dates_from_range import get_dates_range
 from django.utils import timezone
 import requests
 import json
@@ -82,4 +82,34 @@ def flight_search_form(request):
         # request_res.update(request_1)
         url = reverse('search-results', kwargs={'request_id': request_id})
         return HttpResponseRedirect(url)
-    return render(request, 'wizz/search_form.html', {'form': form})
+    return render(request, 'lowcosts/search.html', {'form': form})
+
+
+def get_wizzair_airports(request, city_code):
+    ap_request = requests.get('https://be.wizzair.com/7.7.5/Api/asset/map?languageCode=uk-ua')
+    req_json = json.loads(ap_request.content)
+    kiev_connections = []
+    for city in req_json['cities']:
+        if city['iata'] == city_code:
+            airport = Airport.objects.get_or_create(
+                iata_code=city['iata'],
+                name=city['shortName'] + " (" + city['iata'] + ")",
+                counrty=city['countryName'],
+                city=city['shortName'],
+                longitude=city['longitude'],
+                latitude=city['latitude'],
+            )
+            for connect in city['connections']:
+                kiev_connections.append(connect['iata'])
+    for city in req_json['cities']:
+        for ap in kiev_connections:
+            if ap == city['iata']:
+                airport = Airport.objects.get_or_create(
+                iata_code=city['iata'],
+                name=city['shortName'] + " (" + city['iata'] + ")",
+                counrty=city['countryName'],
+                city=city['shortName'],
+                longitude=city['longitude'],
+                latitude=city['latitude'],
+            )
+    return HttpResponse("Done")

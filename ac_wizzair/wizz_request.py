@@ -5,7 +5,7 @@ import json
 def request_data(departureStation, arrivalStation, date_from, date_to, priceType):
     function_responce = {}
     function_responce_error = {}
-    request_url = "https://be.wizzair.com/7.7.2/Api/search/timetable"
+    request_url = "https://be.wizzair.com/7.7.5/Api/search/timetable"
     head = {'content-type': 'application/json'}
     payload = {"flightList":[{
         "departureStation": departureStation,

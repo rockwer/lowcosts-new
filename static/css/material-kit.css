@@ -3539,7 +3539,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .wrapper > .header {
-  min-height: 300px;
+  min-height: 400px;
   background-position: center center;
   background-size: cover;
 }
@@ -3648,9 +3648,14 @@ h2.title {
   background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
 }
 
-.landing-page .header {
-  height: 100vh;
+/* .landing-page .header { */
+  /* height: 100vh; */
+/* } */
+
+.landing-page .header-small {
+  height: 50vh;
 }
+
 .landing-page .header .container {
   padding-top: 26vh;
   color: #FFFFFF;
