@@ -18,7 +18,10 @@ def request_data(departureStation, arrivalStation, date_from, date_to, priceType
         "from": date_from,
         "to": date_to
         }],
-        "priceType": priceType
+        "priceType": priceType,
+        "adultCount": 1,
+        "childCount": 0,
+        "infantCount": 0
         }
     req = requests.post(request_url, headers=head, data=json.dumps(payload)).content
     req_json = json.loads(req, encoding='utf-8')

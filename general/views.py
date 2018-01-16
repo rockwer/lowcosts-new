@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from general.models import Airport, priceType, priceTemplate, Price
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def home(request):
@@ -11,7 +12,7 @@ def landing(request):
 
 def search_history(request):
     prices = Price.objects.all().order_by('price_USD', 'update_date')
-    paginator = Paginator(prices, 50)
+    paginator = Paginator(prices, 20)
     page = request.GET.get('page')
     try:
         prices = paginator.page(page)

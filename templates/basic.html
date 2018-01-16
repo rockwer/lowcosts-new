@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'home' as home_url %}
 {% url 'search' as search_url %}
+{% url 'history' as hystory_url %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 	<link rel="icon" type="image/png" href="{% static "/img/favicon.png" %}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Landing Page - Material Kit by Creative Tim</title>
+	<title>Lowcosts.Online</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -45,7 +46,7 @@
     					</a>
     				</li>
     				<li>
-						<a href="#" target="_blank">
+						<a href="{% url 'history' %}">
 							<i class="material-icons">unarchive</i> Search history
 						</a>
     				</li>

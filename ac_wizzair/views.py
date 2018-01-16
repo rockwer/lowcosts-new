@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from ac_wizzair.dates_from_range import get_dates_range
 from django.utils import timezone
+from time import sleep
 import requests
 import json
 
@@ -22,11 +23,14 @@ def flight_search_form(request):
         priceType = request.POST.get('priceType')
 
         dates_range = get_dates_range(dateFrom, dateTo)
+        print(dates_range)
         request_index = 0
         while request_index < len(dates_range['dates_from']):
             date_from = dates_range['dates_from'][request_index]
             date_to = dates_range['dates_to'][request_index]
-
+            print(request_index)
+            print(date_from, date_to)
+            print(len(dates_range['dates_from']))
             request_1 = request_data(departureStation, arrivalStation, date_from, date_to, priceType)
             currency_now = requests.get('https://openexchangerates.org/api/latest.json?app_id=6cdf29a6391b479cb9d0a4fe9608fa04')
             currency_json = json.loads(currency_now.content)
