@@ -5,6 +5,7 @@ import json
 def request_data(departureStation, arrivalStation, date_from, date_to, priceType):
     function_responce = {}
     function_responce_error = {}
+    # request_url = "https://be.wizzair.com/7.7.4/Api/search/timetable"
     request_url = "https://be.wizzair.com/7.7.5/Api/search/timetable"
     head = {'content-type': 'application/json'}
     payload = {"flightList":[{
@@ -24,9 +25,11 @@ def request_data(departureStation, arrivalStation, date_from, date_to, priceType
         "infantCount": 0
         }
 
+    req = requests.post(request_url, headers=head, data=json.dumps(payload)).content
+    req_decoded = req.decode('utf-8')
+
     try:
-        req = requests.post(request_url, headers=head, data=json.dumps(payload)).content
-        req_json = json.loads(req.decode('utf-8'))
+        req_json = json.loads(req_decoded)
         if 'validationCodes' in req_json:
             function_responce_error.update(req_json)
             return function_responce_error
@@ -34,4 +37,9 @@ def request_data(departureStation, arrivalStation, date_from, date_to, priceType
             function_responce.update(req_json)
             return function_responce
     except ValueError:
-        print("Error!")
+        function_responce_error["Error"] = req_decoded
+        return function_responce_error
+
+    # print(function_responce_error)
+    # print(function_responce)
+    # return function_responce, function_responce_error

@@ -14,11 +14,55 @@ head = {'content-type': 'application/json'}
 #     'cookie': 'ASP.NET_SessionId=5fmps2oetzbge5qyubgwpawy; ak_bmsc=DA09A276B17E98B06D2869C6D9355167601194041A5300008CD80F5A17ACD105~plPPoQ420Bv9mGe/+GvLdyDFZMGrOOeYBpSXru5Q/TJTOX9ivOZy+byBzPVdijhjROmrB0t6U4nC/qw9A+uPioDgE99K0iqrFFk2ObqsLoXpv/pwsRgjRX1R34dIVz7Qu03gYl61STETB68OkWnfCSCYO5HMQtu33NZZ/MHvF6z5tKhYXWWQHAPOVHwWpHznmyXOKKARrcKHSp7zfYFjSFx2vM6/ZvHIJopbF6PoHh+kM=; bm_sv=596F572CF20263AF8A2D6B8CB908DA67~qFP3ykFhDLR8EmuGr0t8tF1cHxnkGhvdKPL5iGX0u+8RE9jGbknW2seSbsiCmbWrgSDsEg7t9cARFbUCzBQOiIA5TZ78s3bSzswL14waaFrB8VPn6LNQxhhsssaV1MvXN/H8Da8UgM8jIpt5usv92IZuJAbQfzE5jwF6uZk+Z/w=; _ga=GA1.2.1989400728.1510855716; _gid=GA1.2.594641519.1510855716; _gat=1'
 # }
 
-payload = {"flightList":[{"departureStation":"IEV","arrivalStation":"KTW","from":"2018-02-26","to":"2018-04-01"},{"departureStation":"KTW","arrivalStation":"IEV","from":"2018-03-26","to":"2018-05-06"}],"priceType":"regular","adultCount":1,"childCount":0,"infantCount":0}
+# payload = {"flightList":[{"departureStation":"IEV","arrivalStation":"KTW","from":"2018-01-01","to":"2018-04-01"},{"departureStation":"KTW","arrivalStation":"IEV","from":"2018-03-26","to":"2018-05-06"}],"priceType":"regular","adultCount":1,"childCount":0,"infantCount":0}
+# r = requests.post(request_url, headers=head, data=json.dumps(payload)).content
+# x = r.decode("utf-8")
+#
+# error = {}
+#
+# try:
+#     c = json.loads(x)
+#     print(c)
+# except ValueError:
+#     error['Error'] = x
+#
+# print(error)
 
-r = requests.post(request_url, headers=head, data=json.dumps(payload)).content
-# c = r.content
-print(r)
-c = json.loads(r.decode('utf-8'))
-print(c)
-print(type(c))
+di = ({}, {'Error': '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  '
+           '<html>  <head>  <title>Requested URL cannot be found</title>  '
+           '<meta http-equiv="Content-Type" content="text/html; '
+           'charset=utf-8">  <style type="text/css">  td { font-family: '
+           'verdana, arial, sans-serif; }  td { font-size: 12px; }  table { '
+           'margin-left: 50px; }  a.al:link {color: #0000ff; text-decoration: '
+           'none;}  a.al:visited {color: #0000ff;text-decoration: none;}  '
+           'a.al:hover {color: #0000ff;text-decoration: underline;}  p '
+           '{line-height: 20px; margin-bottom: 15px;}  p.ec {color: red;}  '
+           'p.lid {}    </style>    <script type="text/javascript">    '
+           'function timed_redirect(seconds, url)  {     '
+           "document.getElementById('countdown').innerHTML = seconds;     if "
+           '(seconds <= 0)        window.location = url;     else        '
+           'setTimeout(\'timed_redirect(\' + --seconds + \', "\' + url + '
+           '\'")\', 1000);  }  </script>        </head>    <body>  <table '
+           'align="left" width="50%" cellpadding="0" cellspacing="0">  <tr>  '
+           '<td align="left">  <p>&nbsp;</p>  <h2>Requested URL cannot be '
+           'found</h2>  <p>We are sorry, but the page you are looking for '
+           'cannot be found. The page has either been removed, renamed or is '
+           'temporarily unavailable.</p> <p class="ec">404 Not Found</p><p '
+           'class="lid">Reference ID: '
+           '5dc6e010-fb8d-11e7-9c0d-005056934e9d</p>  <hr>  <p><a '
+           'href="javascript:history.back(1)">Back to previous '
+           'page</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/">Proceed '
+           'to homepage</a></p>  </td>  </tr>  <tr>  <td>  '
+           '<p>&nbsp;</p>        </td>  </tr>  </table>    </body>  </html> '})
+
+di1 = ({}, {'Error': ''})
+
+# print(bool(di[1]))
+
+# if bool(di[0]) == False:
+#     print(di[1]['Error'])
+#     print(di[1]['Error'])
+# else:
+#     print(di)
+
+di1[1]['Error'] = 'Error'

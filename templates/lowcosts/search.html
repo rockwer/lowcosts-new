@@ -62,69 +62,10 @@
                             
                             </form>
                 </div>
-                {% if request_res.outboundFlights %}
+                {% if request_res.error %}
                 <div class="row">
-                    <table class="table table-striped">
-                        <h3>Туда:</h3>
-                        <thead>
-                        <tr>
-                            <th>А/П Вылета</th>
-                            <th>А/П Прилета</th>
-                            <th>Дата вылета</th>
-                            <th>Цена</th>
-                        </tr>
-                        </thead>
-                        {% for obj in request_res.outboundFlights %}
-                        <tr>
-                            <td>
-                                {{obj.departureStation}}
-                            </td>
-                            <td>
-                                {{obj.arrivalStation}}
-                            </td>
-                            <td>
-                                {{ obj.departureDate }}
-                            </td>
-                            <td>
-                                {{ obj.price.amount }}
-                            </td>
-                            </td>
-                        </tr>
-                        {% endfor%}
-                    </table>
-                    <table class="table table-striped">
-                        <thead>
-                        <h3>Обратно:</h3>
-                        <tr>
-                            <th>А/П Вылета</th>
-                            <th>А/П Прилета</th>
-                            <th>Дата вылета</th>
-                            <th>Цена</th>
-                        </tr>
-                        </thead>
-                        {% for obj in request_res.returnFlights %}
-                        <tr>
-                            <td>
-                                {{obj.departureStation}}
-                            </td>
-                            <td>
-                                {{obj.arrivalStation}}
-                            </td>
-                            <td>
-                                {{ obj.departureDate }}
-                            </td>
-                            <td>
-                                {{ obj.price.amount }}
-                            </td>
-                            </td>
-                        </tr>
-                        {% endfor%}
-                    </table>
+                    {{ error }}
                 </div>
-                {% elif request_res.validationCodes %}
-                    <div class="row">
-                        {{ request_res.validationCodes }}
-                    </div>
                 {% endif %}
         </div>
     </div>

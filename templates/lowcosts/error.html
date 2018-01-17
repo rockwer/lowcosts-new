@@ -1,0 +1,39 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block error %}
+<div class="landing-page">
+
+<div class="wrapper">
+<div class="header header-filter" style="background-image: url('{% static "/img/bg_index.jpg" %}');">
+            <!-- <div class="container"> -->
+                <!-- <div class="row"> -->
+					<!-- <div class="col-md-6"> -->
+						<!-- <h1 class="title">Find best prices!</h1> -->
+	                    <!-- <h4></h4> -->
+	                    <!-- <br /> -->
+	                    <!-- <a href="https://www.youtube.com/watch?v=069y1MpOkQY" class="btn btn-danger btn-raised btn-lg"> -->
+							<!-- <i class="fa fa-play"></i> Watch video -->
+						<!-- </a> -->
+					<!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+<div class="main main-raised">
+    <div class="container">
+    <div class="alert alert-success">
+    <div class="container-fluid">
+	  <div class="alert-icon">
+		<i class="material-icons">check</i>
+	  </div>
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true"><i class="material-icons">clear</i></span>
+	  </button>
+      <b>Ошибка:</b> Что-то пошло не так. Но не стоит пугаться. Скорее всего проблема у поставщика. Попробуйте еще раз с теми же параметрами.
+    </div>
+</div>
+    {{ error | safe }}
+</div>
+</div>
+</div>
+
+{% endblock %}
