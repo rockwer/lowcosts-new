@@ -33,7 +33,7 @@ def flight_search_form(request):
             print(len(dates_range['dates_from']))
             request_1 = request_data(departureStation, arrivalStation, date_from, date_to, priceType)
             currency_now = requests.get('https://openexchangerates.org/api/latest.json?app_id=6cdf29a6391b479cb9d0a4fe9608fa04')
-            currency_json = json.loads(currency_now.content)
+            currency_json = json.loads(currency_now.content.decode('utf-8'))
             for j in request_1['outboundFlights']:
                 new_price = Price()
                 new_price.request_id = request_id

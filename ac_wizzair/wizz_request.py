@@ -23,12 +23,15 @@ def request_data(departureStation, arrivalStation, date_from, date_to, priceType
         "childCount": 0,
         "infantCount": 0
         }
-    req = requests.post(request_url, headers=head, data=json.dumps(payload)).content
-    req_json = json.loads(req, encoding='utf-8')
 
-    if 'validationCodes' in req_json:
-        function_responce_error.update(req_json)
-        return function_responce_error
-    elif 'validationCodes' not in req_json:
-        function_responce.update(req_json)
-        return function_responce
+    try:
+        req = requests.post(request_url, headers=head, data=json.dumps(payload)).content
+        req_json = json.loads(req.decode('utf-8'))
+        if 'validationCodes' in req_json:
+            function_responce_error.update(req_json)
+            return function_responce_error
+        elif 'validationCodes' not in req_json:
+            function_responce.update(req_json)
+            return function_responce
+    except ValueError:
+        print("Error!")
