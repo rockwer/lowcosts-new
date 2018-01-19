@@ -3,73 +3,79 @@
 {% block search %}
 <div class="landing-page">
 
-<div class="wrapper">
-<div class="header header-filter" style="background-image: url('{% static "/img/bg_index.jpg" %}');">
-            <!-- <div class="container"> -->
-                <!-- <div class="row"> -->
-					<!-- <div class="col-md-6"> -->
-						<!-- <h1 class="title">Find best prices!</h1> -->
-	                    <!-- <h4></h4> -->
-	                    <!-- <br /> -->
-	                    <!-- <a href="https://www.youtube.com/watch?v=069y1MpOkQY" class="btn btn-danger btn-raised btn-lg"> -->
-							<!-- <i class="fa fa-play"></i> Watch video -->
-						<!-- </a> -->
-					<!-- </div> -->
-                <!-- </div> -->
-            <!-- </div> -->
-        </div>
-<div class="main main-raised">
-<div class="container">
-                            <form class="contact-form" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="row">
-	                                <div class="col-md-6">
-										<div class="form-group label-floating">        
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('{% static "/img/bg_index.jpg" %}');">
+        <!-- <div class="container"> -->
+        <!-- <div class="row"> -->
+        <!-- <div class="col-md-6"> -->
+        <!-- <h1 class="title">Find best prices!</h1> -->
+        <!-- <h4></h4> -->
+        <!-- <br /> -->
+        <!-- <a href="https://www.youtube.com/watch?v=069y1MpOkQY" class="btn btn-danger btn-raised btn-lg"> -->
+        <!-- <i class="fa fa-play"></i> Watch video -->
+        <!-- </a> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
+    <div class="main main-raised">
+        <div class="container">
+            <form class="contact-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group label-floating">
                             Вылет из:
                             {{ form.departureStation }}
-                            </div>
-                            </div>
-                             <div class="col-md-6">
-										<div class="form-group label-floating">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group label-floating">
                             Прилет в:
                             {{ form.arrivalStation }}
-                            </div>
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-md-6">
-										<div class="form-group label-floating">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group label-floating">
                             Дата вылета:
                             {{ form.date_from }}
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-										<div class="form-group label-floating">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group label-floating">
                             Дата прилета:
                             {{ form.date_to }}
-                            </div>
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-md-6">
-										<div class="form-group label-floating">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group label-floating">
                             WizzAir Discont Club:
                             {{ form.priceType }}
-                            </div>
-                            </div>
-                            </div>
-                            <button type="submit" class="btn btn-info float-right">Искать</button>
-                            
-                            </form>
+                        </div>
+                    </div>
                 </div>
-                {% if request_res.error %}
-                <div class="row">
-                    {{ error }}
-                </div>
-                {% endif %}
+                <button type="submit" class="btn btn-info float-right">Искать</button>
+            </form>
         </div>
+
+
+        {% if requested %}
+        <div class="container">
+            <div class="row">
+                {{ requested }}
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                        <span class="sr-only">30% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
-</div>
 </div>
 
 {% endblock %}

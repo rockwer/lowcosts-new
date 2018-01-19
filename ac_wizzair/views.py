@@ -14,7 +14,7 @@ import json
 # Create your views here.
 def flight_search_form(request):
     form = FlightSearchForm(request.POST)
-    # error = ''
+    requested = ''
     if request.method == 'POST':
         request_id = new_request_number()
         departureStation = request.POST.get('departureStation')
@@ -26,23 +26,39 @@ def flight_search_form(request):
         dates_range = get_dates_range(dateFrom, dateTo)
         # print(dates_range)
         request_index = 0
-        print(request_index)
-        print(len(dates_range['dates_from']))
+        error_index = 0
+
+        print("First request index: " + str(request_index))
+        print("Dates range: " + str(len(dates_range['dates_from'])))
+
         while request_index < len(dates_range['dates_from']):
+
+            # print(requested)
+            print("Request index #: " + str(request_index))
             # request_index_1 = 0
             # request_index += request_index_1
             # print(request_index_1)
+
             date_from = dates_range['dates_from'][request_index]
             date_to = dates_range['dates_to'][request_index]
+
             # print(request_index)
-            # print(date_from, date_to)
-            # print(len(dates_range['dates_from']))
+            print("RQ date from: " + str(date_from),"RQ date to: " +  str(date_to))
+
             request_1 = request_data(departureStation, arrivalStation, date_from, date_to, priceType)
             # print(request_1)
             if "Error" in request_1:
-                error = request_1['Error']
-                request_index = len(dates_range['dates_from'])
-                return render(request, 'lowcosts/error.html', {'error': error})
+                if error_index >= 10:
+                    request_index += 1
+                    print("Error index: " + str(request_index))
+                else:
+                    error_index += 1
+                    requested += "Error #" + str(error_index) + " Dates from " + str(date_from) + " to " + str(date_to) + " with Error. Repeating request..." + '\n'
+                    print(requested)
+                    pass
+                # error = request_1['Error']
+                # request_index = len(dates_range['dates_from'])
+                # return render(request, 'lowcosts/error.html', {'error': error})
             else:
                 currency_now = requests.get('https://openexchangerates.org/api/latest.json?app_id=6cdf29a6391b479cb9d0a4fe9608fa04')
                 currency_json = json.loads(currency_now.content.decode('utf-8'))
@@ -94,12 +110,15 @@ def flight_search_form(request):
                     new_price_return.save()
                 # print(request_index_1)
                 request_index += 1
+                error_index = 0
+                requested += "Dates from " + str(date_from) + " to " + str(date_to) + " Ok. Requesting next dates..." + '\n'
+                print(requested)
                 # print(request_index_1)
                 sleep(5)
             # request_res.update(request_1)
         url = reverse('search-results', kwargs={'request_id': request_id})
         return HttpResponseRedirect(url)
-    return render(request, 'lowcosts/search.html', {'form': form})
+    return render(request, 'lowcosts/search.html', {'form': form, 'requested': requested})
 
 
 def get_wizzair_airports(request, city_code):
